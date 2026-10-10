@@ -1,0 +1,137 @@
+﻿REPOSITORIO → https://github.com/LDMG22/2DAM_ProgMul
+
+RAMA MAIN:
+[ En el git no pude hacer bien los commits ni las ramas, debido a que tenia un repositorio superior donde guardo las cosas de programación multimedia. Para el proximo ejercicio lo haré bien. Tuve problemas con las ramas y tuve que incluso volver a hacer el proyecto, por eso dentro del repo no se entiende bien lo que hago, lo siento]
+
+Estructura del proyecto:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DATA > RepositoryClient
+
+
+
+LOGIC > INTERFACES > OperacionesInterfaz
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LOGIC > Client
+
+
+
+
+
+
+
+
+
+LOGIC > Controller
+
+VIEW > Dialog
+
+
+VIEW > MainActivty
+
+RES > LAYOUT > activity_main.xml
+
+
+RAMA LAMBDA:
+Estructura del proyecto: 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Antes Dialog y MainActivity implementaban OperacionesInterfaz, ahora los hemos cambiado por lambda:
+
+MainActivity.kt → 
+(siguiente pag)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Dialog.kt → 
+(siguiente pag)
+
