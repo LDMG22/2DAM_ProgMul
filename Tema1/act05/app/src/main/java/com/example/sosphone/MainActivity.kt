@@ -45,6 +45,9 @@ class MainActivity : AppCompatActivity() {
     //Acepta como lanzador un string que representa el permiso a solicitar.
     private lateinit var requestPermissionLauncher: ActivityResultLauncher<String>
     private var permisionPhone = false
+    // 2> VARIABLES
+    private var variable1 = "ciclo de vida en el que estamos" //si es onCreate, onResume..
+    private var variable2 = 1 //segun los numeros que he ido poniendo en el cod, junto al nombre del ciclo de vvida pondre su numero
 
 
     // ====================================================
@@ -54,6 +57,7 @@ class MainActivity : AppCompatActivity() {
         // 1. Siempre se llama a este metodo después de crearse el Activity.
         // se INFLAN las vistas ==> ** cargar datos en memoria
         super.onCreate(savedInstanceState)
+        println("onCreate -> inflando las vistas...");
         mainBinding = ActivityPpalBinding.inflate(layoutInflater)
         setContentView(mainBinding.root)
 
@@ -72,8 +76,7 @@ class MainActivity : AppCompatActivity() {
     // 2. Justo antes de verse, se prepara para mostrarse despueś
     override fun onStart() {
         super.onStart()
-        Log.d(variable1, "variable1, muestro la pantalla y aún no puede interaccionar")
-        Log.d(variable2, "variable2, muestro la pantalla y aún no puede interaccionar")
+        println("onStart -> preparando para mostrarme...")
     }
 
 
@@ -85,6 +88,7 @@ class MainActivity : AppCompatActivity() {
      */
     override fun onResume() {
         super.onResume()
+        println("onResume -> holi! estoy en primer plano y puedes interactuar conmigo :D ")
         permisionPhone = isPermissionCall()
         val stringPhone  = getString(R.string.string_phone)
         phoneSOS = intent.getStringExtra(stringPhone)
@@ -101,28 +105,27 @@ class MainActivity : AppCompatActivity() {
     //          b) 6. onStop() --> [ Stop() > Restart() > Start() ]
     override fun onPause() {
         super.onPause()
-        Log.d(variable1, variable1 + ", pierdo el foco de la pantalla. Boton home")
-        Log.d(variable2, "variable2, pierdo el foco de la pantalla. Boton home")
+        println("onPause -> sin foco / fuera del primer plano")
     }
 
     // 5. Activity vuelve a estar en primer plano
     override fun onRestart() {
         super.onRestart()
-        Log.d(variable1, "Vuelvo a estar visible para santi.")
+        println("onRestart -> volvi! soy el primer planooo")
     }
 
     // 6. Activity deja de ser visible para el usuario (según S.O y los parámetros que siga)
     //      esto se debe al oonPause() y de ahi o: a) onRestart() = vuelve a estar visible O SINO b) onDestroy()
     override fun onStop() {
         super.onStop()
-        Log.d(variable1, "Dejo de estar visible para el usuario. Otra App, S.O.")
     }
 
     // 7. Es destruido o por el usuario o por S.O, permite liberar recursos con ello
     override fun onDestroy() {
         super.onDestroy()
-        Log.d(variable1, "La actividad muere.")
     }
+
+
 
     // =====================================================
     // ================== METODOS APARTE ===================
